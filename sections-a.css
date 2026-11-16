@@ -34,8 +34,8 @@
   --orl-accent-verified: var(--accent-verified, #10b981);
   --orl-hairline-dark: rgba(143, 166, 255, 0.18);
   --orl-hairline-light: rgba(10, 22, 56, 0.1);
-  --orl-font-display: var(--font-display, "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, sans-serif);
-  --orl-font-body: var(--font-sans, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  --orl-font-display: var(--font-display, "Space Grotesk", sans-serif);
+  --orl-font-body: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
 
   position: relative;
   padding-block: clamp(4.5rem, 8.5vw, 7rem);
@@ -264,471 +264,275 @@
 /* =========================================================================
    SECTION #inbound-outbound (Sticky Horizontal Capability Showcase)
    ========================================================================= */
-#inbound-outbound.orl-engines {
-  padding: 0;
-  scroll-margin-top: 0;
-  background: var(--orl-surface);
-  color: var(--orl-text);
-  border-block: 1px solid var(--orl-border-light);
-}
-
-#inbound-outbound :where(a, button, [tabindex]):focus-visible {
-  outline: 3px solid var(--orl-brand-outbound);
-  outline-offset: 3px;
-}
-
-.orl-engines-stage {
+/* =========================================================================
+   STICKY SCROLLABLE PRACTICES SECTION (#inbound-outbound)
+   Design Reference: AARK Innovations Consulting Practices Deck
+   Split 2-Column: Left Side Content, Right Side Generated Telemetry Image
+   Brand-aligned OneReach Labs theme: Deep Navy (#0a1638), Navy-800 (#0f1d47),
+   Outbound Cobalt (#1e3db4, #8fa6ff) and Vibrant Amber (#f08a2e).
+   ========================================================================= */
+#inbound-outbound.orl-practices-section {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: clamp(2rem, 3.5vw, 3rem);
-  padding-block: clamp(4.5rem, 8vw, 6.5rem);
-  padding-inline: clamp(1.25rem, 4.5vw, 4rem);
-  background: var(--orl-surface);
-  overflow: clip;
+  background: var(--navy, #0a1638) !important;
+  background-image:
+    radial-gradient(rgba(143, 166, 255, 0.14) 1px, transparent 1px),
+    radial-gradient(rgba(240, 138, 46, 0.06) 1.5px, transparent 1.5px) !important;
+  background-size: 32px 32px, 80px 80px !important;
+  background-position: 0 0, 16px 16px !important;
+  border-block: 1px solid rgba(143, 166, 255, 0.16);
+  color: var(--on-dark, #ffffff);
+  padding-block: clamp(4.5rem, 7vw, 7rem);
+  padding-inline: clamp(1rem, 3.5vw, 2.5rem);
+  overflow-x: clip;
 }
 
-.orl-engines-head {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-  inline-size: 100%;
-  max-inline-size: 80rem;
+.orl-practices-container {
+  max-inline-size: 78rem;
   margin-inline: auto;
 }
 
-.orl-engines-head__left {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  max-inline-size: 46rem;
+/* Centered Section Header */
+.orl-practices-head {
+  text-align: center;
+  max-inline-size: 48rem;
+  margin-inline: auto;
+  margin-block-end: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-.orl-engines-cross {
+.orl-practices-eyebrow {
+  display: inline-block;
+  font-family: monospace, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--outbound-accent, #8fa6ff);
+  margin-block-end: 0.75rem;
+}
+
+.orl-practices-h2 {
+  font-family: var(--orl-font-display, "Space Grotesk", sans-serif);
+  font-size: clamp(2rem, 1.6rem + 2vw, 3.25rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.orl-practices-lead {
+  font-family: var(--orl-font-body, -apple-system, sans-serif);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  color: var(--on-dark-muted, #c9d2ea);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Stacking Container */
+.orl-practices-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3vw, 2.75rem);
+  padding-block-end: 2rem;
   position: relative;
-  inline-size: 15px;
-  block-size: 15px;
-  flex-shrink: 0;
-  margin-block-end: 0.45rem;
 }
 
-.orl-engines-cross::before,
-.orl-engines-cross::after {
-  content: "";
-  position: absolute;
-  background: var(--orl-brand-outbound);
+/* Sticky Stacking Cards in OneReach Deep Navy Container */
+.orl-practice-card {
+  position: sticky;
+  border-radius: clamp(1.15rem, 2vw, 1.5rem);
+  background: var(--navy-800, #0f1d47);
+  border: 1px solid rgba(143, 166, 255, 0.22);
+  box-shadow: 0 25px 60px rgba(10, 22, 56, 0.75), 0 0 0 1px rgba(143, 166, 255, 0.08) inset;
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  transition: box-shadow 240ms ease, border-color 240ms ease, transform 240ms ease;
 }
 
-.orl-engines-cross::before {
-  inset-inline: 0;
-  inset-block-start: 50%;
-  block-size: 1.5px;
-  transform: translateY(-50%);
+.orl-practice-card:hover {
+  border-color: rgba(143, 166, 255, 0.45);
+  box-shadow: 0 30px 80px rgba(10, 22, 56, 0.9), 0 0 30px rgba(30, 61, 180, 0.25);
 }
 
-.orl-engines-cross::after {
-  inset-block: 0;
-  inset-inline-start: 50%;
-  inline-size: 1.5px;
-  transform: translateX(-50%);
-}
+/* Stepped Stacking Offsets */
+.sticky-stack-1 { top: 90px; z-index: 10; }
+.sticky-stack-2 { top: 110px; z-index: 20; }
+.sticky-stack-3 { top: 130px; z-index: 30; }
+.sticky-stack-4 { top: 150px; z-index: 40; }
+.sticky-stack-5 { top: 170px; z-index: 50; }
+.sticky-stack-6 { top: 190px; z-index: 60; }
+.sticky-stack-7 { top: 210px; z-index: 70; }
 
-.orl-engines-viewport {
-  inline-size: 100%;
-  container: orl-engines-vp / inline-size;
-  overflow: clip;
-}
-
-.orl-engines-track {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  inline-size: 100%;
-  max-inline-size: 80rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.5rem, 2.5vw, 2.25rem);
-}
-
-.orl-cap-card {
+/* Centered Card Content */
+.orl-practice-card__inner {
+  max-inline-size: 52rem;
+  margin-inline: auto;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  min-inline-size: 0;
-  padding: clamp(1.25rem, 2vw, 1.65rem);
-  border-radius: 0.875rem;
-  background: var(--orl-surface);
-  border: 1px solid var(--orl-border-light);
-  transition: border-color 180ms ease;
+  align-items: center;
 }
 
-.orl-cap-card--inbound:hover,
-.orl-cap-card--inbound:focus-within {
-  border-color: var(--orl-brand-inbound);
-}
-
-.orl-cap-card--outbound:hover,
-.orl-cap-card--outbound:focus-within {
-  border-color: var(--orl-brand-outbound);
-}
-
-.orl-cap-card__art {
-  display: grid;
-  place-items: center;
-  block-size: clamp(6rem, 13.5dvh, 8.25rem);
-  margin-block-end: 1rem;
-  padding-block-end: 1rem;
-  border-block-end: 1px solid var(--orl-hairline-light);
-}
-
-.orl-cap-card__art svg {
-  max-inline-size: 100%;
-  max-block-size: 100%;
-  inline-size: auto;
-  block-size: auto;
-  display: block;
-}
-
-.orl-iso-accent {
-  opacity: var(--cap-accent, 1);
-  transition: opacity 220ms ease;
-}
-
-.orl-cap-card:is(:hover, :focus-within) .orl-iso-accent {
-  opacity: 1 !important;
-}
-
-.orl-cap-card__body {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  gap: 0.75rem;
-}
-
-.orl-cap-badge {
-  align-self: flex-start;
+/* Meta Pill + Kicker */
+.orl-practice-meta {
   display: inline-flex;
   align-items: center;
-  padding: 0.28rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1.25;
-}
-
-/* #0a1638 on #f08a2e yields ~7.16:1 contrast (WCAG AAA) */
-.orl-cap-badge--inbound {
-  background: var(--orl-brand-inbound);
-  color: var(--orl-navy);
-}
-
-/* #ffffff on #1e3db4 yields ~8.80:1 contrast (WCAG AAA) */
-.orl-cap-badge--outbound {
-  background: var(--orl-brand-outbound);
-  color: var(--orl-on-dark);
-}
-
-.orl-cap-card__title {
-  margin: 0;
-  font-family: var(--orl-font-display);
-  font-size: clamp(1.22rem, 1.05rem + 0.55vw, 1.5rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--orl-text);
-  text-wrap: balance;
-}
-
-.orl-cap-tags {
-  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  gap: 0.4rem 0.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  margin-block-end: 1rem;
 }
 
-.orl-cap-tags li {
-  padding: 0.24rem 0.58rem;
-  border-radius: 0.375rem;
+.orl-practice-badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  font-family: monospace, sans-serif;
   font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--orl-text-muted-3);
-  background: var(--orl-surface-alt);
-  border: 1px solid var(--orl-border-light);
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
-.orl-cap-card__footer {
-  margin: auto 0 0;
-  padding-block-start: 0.8rem;
-  border-block-start: 1px solid var(--orl-hairline-light);
+/* Cobalt Practice Badges */
+.orl-badge--blue,
+.orl-badge--cyan,
+.orl-badge--slate {
+  background: rgba(30, 61, 180, 0.28);
+  color: var(--outbound-accent, #8fa6ff);
+  border: 1px solid rgba(143, 166, 255, 0.35);
+}
+
+/* Amber Practice Badges */
+.orl-badge--amber,
+.orl-badge--emerald,
+.orl-badge--purple,
+.orl-badge--rose {
+  background: rgba(240, 138, 46, 0.16);
+  color: var(--brand-inbound, #f08a2e);
+  border: 1px solid rgba(240, 138, 46, 0.4);
+}
+
+.orl-practice-kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-dark-muted-2, #8fa6ff);
+  font-family: var(--orl-font-body, -apple-system, sans-serif);
+}
+
+/* Card Heading & Summary - Centered */
+.orl-practice-title {
+  font-family: var(--orl-font-display, "Space Grotesk", sans-serif);
+  font-size: clamp(1.75rem, 1.45rem + 1vw, 2.35rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 0.85rem;
+  text-align: center;
+}
+
+.orl-practice-summary {
+  font-family: var(--orl-font-body, -apple-system, sans-serif);
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  color: var(--on-dark-muted, #c9d2ea);
+  line-height: 1.6;
+  max-inline-size: 42rem;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+/* 2-Column Capability Checklist - Centered Container */
+.orl-practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 2.5rem;
+  inline-size: 100%;
+  max-inline-size: 44rem;
+  margin: 0 auto 2.25rem;
+  text-align: left;
+}
+
+.orl-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
   font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--orl-text-muted);
-  text-wrap: pretty;
+  color: #e2e8f0;
+  line-height: 1.45;
 }
 
-.orl-engines-progress {
-  display: none;
+.orl-check-icon {
+  color: var(--brand-inbound, #f08a2e);
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-block-start: 2px;
 }
 
-/* Desktop Sticky Horizontal Scrollytelling */
-@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
-  #inbound-outbound.orl-engines {
-    block-size: 380vh;
-    block-size: 380dvh;
-  }
-
-  #inbound-outbound .orl-engines-stage {
-    position: sticky;
-    top: 0;
-    justify-content: space-between;
-    gap: clamp(0.75rem, 1.6dvh, 1.5rem);
-    block-size: 100vh;
-    block-size: 100dvh;
-    padding-block-start: calc(var(--header-h, 64px) + clamp(0.75rem, 1.8dvh, 1.5rem));
-    padding-block-end: clamp(1.75rem, 3.8dvh, 2.75rem);
-    padding-inline: 0;
-  }
-
-  #inbound-outbound .orl-engines-head {
-    max-inline-size: none;
-    padding-inline: clamp(1.5rem, 4.5vw, 4.5rem);
-  }
-
-  #inbound-outbound .orl-engines-head__left {
-    gap: clamp(0.45rem, 0.9dvh, 0.7rem);
-  }
-
-  #inbound-outbound .orl-heading {
-    font-size: clamp(1.85rem, 1.15rem + 2vw, 3.05rem);
-  }
-
-  #inbound-outbound .orl-lead {
-    font-size: clamp(0.875rem, 0.85rem + 0.18vw, 1rem);
-    line-height: 1.5;
-  }
-
-  #inbound-outbound .orl-engines-viewport {
-    inline-size: 100%;
-    padding-block: 0.25rem;
-  }
-
-  #inbound-outbound .orl-engines-track {
-    display: flex;
-    align-items: stretch;
-    gap: clamp(1.5rem, 2.6vw, 2.5rem);
-    inline-size: max-content;
-    max-inline-size: none;
-    margin: 0;
-    padding-inline: clamp(1.5rem, 4.5vw, 4.5rem);
-    will-change: transform;
-  }
-
-  #inbound-outbound .orl-cap-card {
-    flex: 0 0 clamp(295px, 27vw, 355px);
-    padding: clamp(1rem, 1.65dvh, 1.5rem) clamp(1.15rem, 1.75vw, 1.55rem);
-  }
-
-  #inbound-outbound .orl-cap-card__art {
-    block-size: clamp(4.75rem, 10.5dvh, 7.25rem);
-    margin-block-end: clamp(0.65rem, 1.3dvh, 0.95rem);
-    padding-block-end: clamp(0.65rem, 1.3dvh, 0.95rem);
-  }
-
-  #inbound-outbound .orl-cap-card__body {
-    gap: clamp(0.5rem, 1dvh, 0.75rem);
-  }
-
-  #inbound-outbound .orl-cap-card__footer {
-    padding-block-start: clamp(0.55rem, 1.1dvh, 0.8rem);
-    font-size: clamp(0.8125rem, 0.78rem + 0.12vw, 0.875rem);
-    line-height: 1.45;
-  }
-
-  #inbound-outbound .orl-engines-progress {
-    display: block;
-    inline-size: calc(100% - clamp(3rem, 9vw, 9rem));
-    block-size: 2px;
-    margin-inline: auto;
-    border-radius: 2px;
-    background: rgba(10, 22, 56, 0.12);
-    overflow: clip;
-  }
-
-  #inbound-outbound .orl-engines-progress__fill {
-    inline-size: 100%;
-    block-size: 100%;
-    background: linear-gradient(90deg, var(--orl-brand-inbound) 0%, var(--orl-brand-outbound) 100%);
-    transform-origin: 0 50%;
-    will-change: transform;
-  }
-
-  #inbound-outbound.scroll-fallback .orl-engines-track {
-    transform: translate3d(calc((100cqi - 100%) * var(--engines-p, 0)), 0, 0);
-  }
-
-  #inbound-outbound.scroll-fallback .orl-engines-progress__fill {
-    transform: scaleX(var(--engines-p, 0));
-  }
+/* CTA Row - Centered */
+.orl-practice-cta-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-inline: auto;
 }
 
-@media (min-width: 901px) and (max-height: 640px) and (prefers-reduced-motion: no-preference) {
-  #inbound-outbound .orl-engines-stage {
+.orl-practice-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--brand-inbound, #f08a2e);
+  color: var(--navy, #0a1638) !important;
+  padding: 0.7rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.orl-practice-cta:hover {
+  background: #ff9838;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(240, 138, 46, 0.45);
+  color: var(--navy, #0a1638) !important;
+}
+
+.orl-practice-pill {
+  font-family: monospace, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--outbound-accent, #8fa6ff);
+  background: rgba(143, 166, 255, 0.1);
+  border: 1px solid rgba(143, 166, 255, 0.25);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .orl-practice-card {
+    position: relative;
+    top: auto !important;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .orl-practice-grid {
+    grid-template-columns: 1fr;
     gap: 0.65rem;
-    padding-block-start: calc(var(--header-h, 64px) + 0.5rem);
-    padding-block-end: 1.5rem;
   }
 
-  #inbound-outbound .orl-heading {
-    font-size: clamp(1.65rem, 1.05rem + 1.8vw, 2.5rem);
+  .orl-practice-cta-wrap {
+    flex-direction: column;
+    inline-size: 100%;
   }
 
-  #inbound-outbound .orl-cap-card {
-    padding: 0.9rem 1.1rem;
-  }
-
-  #inbound-outbound .orl-cap-card__art {
-    block-size: 3.85rem;
-    margin-block-end: 0.5rem;
-    padding-block-end: 0.5rem;
-  }
-
-  #inbound-outbound .orl-cap-card__body {
-    gap: 0.4rem;
-  }
-
-  #inbound-outbound .orl-cap-tags li {
-    padding: 0.18rem 0.48rem;
-    font-size: 0.7rem;
-  }
-
-  #inbound-outbound .orl-cap-card__footer {
-    padding-block-start: 0.45rem;
-    font-size: 0.8rem;
-  }
-}
-
-@keyframes orl-engines-slide-x {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(calc(100cqi - 100%), 0, 0);
-  }
-}
-
-@keyframes orl-engines-progress-scale {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes orl-cap-highlight {
-  0% {
-    opacity: 0.25;
-  }
-  32% {
-    opacity: 1;
-  }
-  68% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.35;
-  }
-}
-
-@supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
-  @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
-    #inbound-outbound.orl-engines {
-      view-timeline: --orl-engines-tl block;
-    }
-
-    #inbound-outbound .orl-engines-track {
-      animation: orl-engines-slide-x auto linear both;
-      animation-timeline: --orl-engines-tl;
-      animation-range: contain 4% contain 96%;
-    }
-
-    #inbound-outbound .orl-engines-progress__fill {
-      animation: orl-engines-progress-scale auto linear both;
-      animation-timeline: --orl-engines-tl;
-      animation-range: contain 4% contain 96%;
-    }
-
-    #inbound-outbound .orl-iso-accent {
-      animation: orl-cap-highlight auto linear both;
-      animation-timeline: --orl-engines-tl;
-    }
-
-    #inbound-outbound .orl-cap-card[data-cap="1"] .orl-iso-accent {
-      animation-range: contain 0% contain 30%;
-    }
-
-    #inbound-outbound .orl-cap-card[data-cap="2"] .orl-iso-accent {
-      animation-range: contain 10% contain 46%;
-    }
-
-    #inbound-outbound .orl-cap-card[data-cap="3"] .orl-iso-accent {
-      animation-range: contain 26% contain 62%;
-    }
-
-    #inbound-outbound .orl-cap-card[data-cap="4"] .orl-iso-accent {
-      animation-range: contain 42% contain 78%;
-    }
-
-    #inbound-outbound .orl-cap-card[data-cap="5"] .orl-iso-accent {
-      animation-range: contain 58% contain 92%;
-    }
-
-    #inbound-outbound .orl-cap-card[data-cap="6"] .orl-iso-accent {
-      animation-range: contain 70% contain 100%;
-    }
-  }
-}
-
-/* =========================================================================
-   RESPONSIVE BREAKPOINTS (Desktop -> Tablet -> Mobile)
-   ========================================================================= */
-@media (max-width: 900px) {
-  .orl-engines-track {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 639px) {
-  .orl-engines-stage {
-    padding-block: 3.25rem;
-    padding-inline: 1rem;
-  }
-
-  .orl-engines-track {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* =========================================================================
-   FORCED COLORS MODE (Windows High Contrast)
-   ========================================================================= */
-@media (forced-colors: active) {
-  .orl-cap-card,
-  .orl-cap-tags li,
-  .orl-micro,
-  .orl-cap-badge,
-  .orl-engines-progress {
-    border: 1px solid CanvasText;
-  }
-
-  .orl-engines-progress__fill {
-    background: Highlight;
+  .orl-practice-cta {
+    inline-size: 100%;
+    justify-content: center;
   }
 }
