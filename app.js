@@ -1589,6 +1589,33 @@
       }
     });
 
+    // Smooth scroll for site navigation and footer section links (#services, #industries, etc.)
+    document.addEventListener('click', (e) => {
+      const navLink = e.target.closest('.site-nav a[href^="#"], .site-footer a[href^="#"], .vortex-pill-link[href^="#"]');
+      if (!navLink || navLink.dataset.jumpPortal === 'true' || navLink.dataset.heroExplore === 'true') return;
+      const href = navLink.getAttribute('href');
+      if (!href || href === '#' || href === '#top') return;
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        if (menu && menu.hasAttribute('popover') && menu.matches(':popover-open')) {
+          try {
+            menu.hidePopover();
+          } catch {
+            // Ignore popover state errors
+          }
+        }
+        target.scrollIntoView({
+          behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
+          block: 'start'
+        });
+        if (window.history.pushState) {
+          window.history.pushState(null, '', href);
+        }
+      }
+    });
+
     // Activate uploaded <video> automatically if a src is present; otherwise run animated placeholder
     const hasVideoSrc = Boolean(
       videoEl && (videoEl.getAttribute('src') || videoEl.querySelector('source[src]'))
@@ -1808,7 +1835,6 @@
     const approvalEl = document.getElementById('vortex-approval');
     const nodesWrap = document.getElementById('vortex-nodes');
     const pillEls = nodesWrap ? Array.from(nodesWrap.querySelectorAll('.vortex-pill')) : [];
-    const dockEl = document.getElementById('vortex-dock');
     const motionToggle = document.getElementById('vortex-motion-toggle');
 
     if (!runway || !stage || !bgCanvas || !coreCanvas) return;
@@ -2330,30 +2356,58 @@
         beat3El.style.transform = `translate3d(0, ${Math.round((1 - a3) * 18)}px, 0)`;
       }
 
-      // MORPHING 5 NODES + APPROVAL + BEZIER CONNECTORS (Beats 2 -> 3)
+      // MORPHING 6 NODES + BEZIER CONNECTORS (Beats 2 -> 3)
       const nodesAlpha = bellWindow(p, 0.18, 0.24, 0.64, 0.69);
       const morphT = smoothstep(0.37, 0.49, p);
       const cx = width * 0.5;
       const cy = height * 0.5;
       const orbitR = minDim * 0.34;
-      const rowY = isNarrow ? height * 0.38 : height * 0.43;
-      const rowSpread = Math.min(width - (isNarrow ? 64 : 96), 820);
+      const rowSpread = Math.min(width - (isNarrow ? 64 : 96), 840);
 
-      // Angles in Beat 2 orbit matching Sense(L), Perceive(Top), Decide(TR), Deliver(BR), Learn(BL)
+      // Measure Beat 3 headline + lead to dynamically guarantee zero content overlap
+      let headBottom = 0;
+      if (beat3El) {
+        const head = beat3El.querySelector('.vortex-beat3-head');
+        if (head && stage) {
+          const headRect = head.getBoundingClientRect();
+          const stageRect = stage.getBoundingClientRect();
+          headBottom = headRect.bottom - stageRect.top;
+        }
+      }
+
+      // Safe rowY ensures pills always start below the header text with comfortable clearance
+      const minRowY = headBottom > 0 ? headBottom + (isNarrow ? 26 : 34) : (isNarrow ? height * 0.40 : height * 0.43);
+      const defaultRowY = isNarrow ? height * 0.40 : height * 0.43;
+      const rowY = Math.max(defaultRowY, minRowY);
+      const rowSpacingY = isNarrow ? 38 : 44;
+
+      // Orbit angles for all 7 circular headings (360° / 7 = 51.43° equal spacing):
+      // Inbound(9:20), Outbound(11:00), Demand Gen(1:00), Alignment(2:40), Sales(4:20), [Caption at 6:00], RevOps(7:40)
       const orbitAngles = [
-        -Math.PI * 0.9,   // SENSE (left)
-        -Math.PI * 0.5,   // PERCEIVE (top)
-        -Math.PI * 0.1,   // DECIDE (right)
-        Math.PI * 0.28,   // DELIVER (bottom-right)
-        Math.PI * 0.72    // LEARN (bottom-left)
+        -Math.PI * (13 / 14), // INBOUND (idx 0: -167.14°)
+        -Math.PI * (9 / 14),  // OUTBOUND (idx 1: -115.71°)
+        -Math.PI * (5 / 14),  // DEMAND GEN (idx 2: -64.29°)
+        -Math.PI * (1 / 14),  // ALIGNMENT (idx 3: -12.86°)
+        Math.PI * (3 / 14),   // SALES (idx 4: +38.57°)
+        Math.PI * (11 / 14)   // REVOPS (idx 5: +141.43°)
       ];
       // Single row on desktop; 2 clean 3+3 rows on narrow viewports to avoid overlap
       const rowXs = isNarrow
-        ? [cx - rowSpread * 0.34, cx, cx + rowSpread * 0.34, cx + rowSpread * 0.02, cx + rowSpread * 0.34]
-        : [cx - rowSpread * 0.46, cx - rowSpread * 0.26, cx - rowSpread * 0.08, cx + rowSpread * 0.27, cx + rowSpread * 0.46];
+        ? [
+            cx - rowSpread * 0.35, cx, cx + rowSpread * 0.35,
+            cx - rowSpread * 0.35, cx, cx + rowSpread * 0.35
+          ]
+        : [
+            cx - rowSpread * 0.45,
+            cx - rowSpread * 0.27,
+            cx - rowSpread * 0.09,
+            cx + rowSpread * 0.09,
+            cx + rowSpread * 0.27,
+            cx + rowSpread * 0.45
+          ];
       const rowYs = isNarrow
-        ? [rowY, rowY, rowY, rowY + 42, rowY + 42]
-        : [rowY, rowY, rowY, rowY, rowY];
+        ? [rowY, rowY, rowY, rowY + rowSpacingY, rowY + rowSpacingY, rowY + rowSpacingY]
+        : [rowY, rowY, rowY, rowY, rowY, rowY];
 
       const pillPositions = [];
       pillEls.forEach((el, idx) => {
@@ -2362,10 +2416,10 @@
           el.style.pointerEvents = 'none';
           return;
         }
-        const ox = cx + Math.cos(orbitAngles[idx]) * orbitR;
-        const oy = cy + Math.sin(orbitAngles[idx]) * orbitR;
-        const rx = rowXs[idx];
-        const ry = rowYs[idx];
+        const ox = cx + Math.cos(orbitAngles[idx] !== undefined ? orbitAngles[idx] : 0) * orbitR;
+        const oy = cy + Math.sin(orbitAngles[idx] !== undefined ? orbitAngles[idx] : 0) * orbitR;
+        const rx = rowXs[idx] !== undefined ? rowXs[idx] : cx;
+        const ry = rowYs[idx] !== undefined ? rowYs[idx] : rowY;
         const x = lerp(ox, rx, morphT);
         const y = lerp(oy, ry, morphT);
         pillPositions.push({ x, y });
@@ -2374,15 +2428,6 @@
         el.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0) translate(-50%, -50%)`;
         el.classList.toggle('is-highlighted', idx === 2);
       });
-
-      if (approvalEl) {
-        const appAlpha = bellWindow(p, 0.47, 0.51, 0.64, 0.69);
-        const ax = isNarrow ? cx - rowSpread * 0.34 : cx + rowSpread * 0.10;
-        const ay = isNarrow ? rowY + 42 : rowY;
-        approvalEl.style.opacity = appAlpha.toFixed(3);
-        approvalEl.style.transform = `translate3d(${Math.round(ax)}px, ${Math.round(ay)}px, 0) translate(-50%, -50%) scale(${(0.85 + appAlpha * 0.15).toFixed(3)})`;
-        pillPositions.push({ x: ax, y: ay });
-      }
 
       // Draw SVG curved Bezier feeder lines during Beat 3
       const connAlpha = bellWindow(p, 0.47, 0.52, 0.64, 0.68);
@@ -2394,7 +2439,7 @@
           pillPositions.forEach((src, i) => {
             const path = connectorPaths[i];
             if (!path) return;
-            const sy = src.y + 18;
+            const sy = src.y + (isNarrow ? 15 : 18);
             const cy1 = lerp(sy, targetY, 0.52);
             const cy2 = lerp(sy, targetY, 0.85);
             path.setAttribute(
@@ -2445,14 +2490,6 @@
           finaleEl.style.pointerEvents = finaleActive ? 'auto' : 'none';
           finaleEl.classList.toggle('is-visible', finaleActive);
         }
-      }
-
-      // Dock visibility inside Section 1 Vortex runway only
-      const runwayRect = runway.getBoundingClientRect();
-      const insideVortexDock =
-        runwayRect.top < window.innerHeight * 0.55 && runwayRect.bottom > window.innerHeight * 0.45;
-      if (dockEl) {
-        dockEl.classList.toggle('is-hidden', !insideVortexDock);
       }
     }
 

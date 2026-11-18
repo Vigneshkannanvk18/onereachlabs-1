@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.4">
   <link rel="stylesheet" href="sections-a.css">
   <link rel="stylesheet" href="sections-b.css">
 </head>
@@ -292,28 +292,8 @@
         </button>
 
         <ul id="site-menu" class="site-menu" popover="auto">
-          <li class="nav-dropdown">
-            <button
-              class="dropdown-trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="services-menu"
-              popovertarget="services-menu"
-            >
-              <span>Services</span>
-              <svg aria-hidden="true" viewBox="0 0 12 8" width="10" height="7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1.5 1.5L6 6l4.5-4.5" />
-              </svg>
-            </button>
-            <ul id="services-menu" class="dropdown-list">
-              <li><a href="#services">Inbound Marketing</a></li>
-              <li><a href="#services">Outbound Lead Generation</a></li>
-              <li><a href="#services">Demand Generation</a></li>
-              <li><a href="#services">Appointment Setting</a></li>
-              <li><a href="#services">Sales Automation</a></li>
-              <li><a href="#services">Marketing Automation</a></li>
-              <li><a href="#services">CRM &amp; Revenue Operations</a></li>
-            </ul>
+          <li>
+            <a href="#services">Services</a>
           </li>
 
           <li class="nav-dropdown">
@@ -331,52 +311,17 @@
             </button>
             <ul id="products-menu" class="dropdown-list">
               <li><a href="https://onereach.app/" target="_blank" rel="noopener noreferrer">OneReach</a></li>
-              <li><a href="#pricing">Market IQ</a></li>
-              <li><a href="#pricing">OneConnect CRM</a></li>
+              <li><a href="https://web.onetrac.ai/" target="_blank" rel="noopener noreferrer">Market IQ</a></li>
+              <li><a href="https://oneconnect.app/" target="_blank" rel="noopener noreferrer">OneConnect</a></li>
             </ul>
           </li>
 
-          <li class="nav-dropdown">
-            <button
-              class="dropdown-trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="industries-menu"
-              popovertarget="industries-menu"
-            >
-              <span>Industries</span>
-              <svg aria-hidden="true" viewBox="0 0 12 8" width="10" height="7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1.5 1.5L6 6l4.5-4.5" />
-              </svg>
-            </button>
-            <ul id="industries-menu" class="dropdown-list">
-              <li><a href="#who-its-for">B2B SaaS</a></li>
-              <li><a href="#who-its-for">Professional Services</a></li>
-              <li><a href="#who-its-for">Agencies</a></li>
-              <li><a href="#who-its-for">Manufacturing</a></li>
-              <li><a href="#who-its-for">Financial Services</a></li>
-              <li><a href="#who-its-for">Enterprise Teams</a></li>
-            </ul>
+          <li>
+            <a href="#industries">Industries</a>
           </li>
 
-          <li class="nav-dropdown">
-            <button
-              class="dropdown-trigger"
-              type="button"
-              aria-expanded="false"
-              aria-controls="resources-menu"
-              popovertarget="resources-menu"
-            >
-              <span>Resources</span>
-              <svg aria-hidden="true" viewBox="0 0 12 8" width="10" height="7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1.5 1.5L6 6l4.5-4.5" />
-              </svg>
-            </button>
-            <ul id="resources-menu" class="dropdown-list">
-              <li><a href="#how-it-works">Case Studies</a></li>
-              <li><a href="#data">Insights &amp; Blog</a></li>
-              <li><a href="#data">Guides</a></li>
-            </ul>
+          <li>
+            <a href="#how-it-works">How It Works</a>
           </li>
 
           <li class="nav-dropdown nav-dropdown--right">
@@ -393,15 +338,16 @@
               </svg>
             </button>
             <ul id="company-menu" class="dropdown-list">
-              <li><a href="#data">About Us</a></li>
-              <li><a href="#campaign-form-wrap">Contact</a></li>
+              <li><a href="#why-us">About Us</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
           </li>
         </ul>
       </nav>
 
       <a href="#campaign-form-wrap" class="header-cta" data-jump-portal="true">
-        <span>Book a Strategy Call</span>
+        <span class="header-cta__text--long">Book a Strategy Call</span>
+        <span class="header-cta__text--short">Book a Call</span>
         <svg class="header-cta__icon" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3.5 8h9M8.5 4l4 4-4 4" />
         </svg>
@@ -508,7 +454,7 @@
                 </a>
               </div>
               <p class="hero-trust-line">
-                Human Strategy. AI-Powered Execution. Measurable Growth.
+                Strategic Direction &bull; Scalable AI Infrastructure &bull; Measurable ROI
               </p>
             </div>
           </div>
@@ -633,7 +579,7 @@
             <button type="button" class="vortex-pill" data-node="sense" data-focus-track="signals">INBOUND</button>
             <button type="button" class="vortex-pill" data-node="perceive" data-focus-track="intel">OUTBOUND</button>
             <button type="button" class="vortex-pill is-highlighted" data-node="decide" data-focus-track="discovery">DEMAND GEN</button>
-            <span class="vortex-approval" id="vortex-approval">ALIGNMENT</span>
+            <button type="button" class="vortex-pill vortex-approval" id="vortex-approval" data-node="approval" data-focus-track="alignment">ALIGNMENT</button>
             <button type="button" class="vortex-pill" data-node="deliver" data-focus-track="sequences">SALES</button>
             <button type="button" class="vortex-pill" data-node="learn" data-focus-track="followup">REVOPS</button>
           </div>
@@ -694,25 +640,6 @@
           </div>
         </div>
 
-        <!-- Bottom Floating Frosted-Glass Pill Dock -->
-        <div class="vortex-dock is-hidden" id="vortex-dock" role="region" aria-label="Quick navigation dock">
-          <a href="#engines" class="vortex-dock__icon" aria-label="Jump to interactive engine network" title="Explore Agent Network">
-            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-              <circle cx="10" cy="10" r="7" />
-              <circle cx="7.6" cy="8.5" r="0.9" fill="currentColor" stroke="none" />
-              <circle cx="12.4" cy="8.5" r="0.9" fill="currentColor" stroke="none" />
-              <path d="M7.5 12.2c.7.9 1.6 1.3 2.5 1.3s1.8-.4 2.5-1.3" />
-            </svg>
-          </a>
-          <a href="#inbound-outbound" class="vortex-dock__menu" aria-label="Explore Dual-Engine Capabilities" title="Explore Capabilities">
-            <svg viewBox="0 0 18 14" width="16" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-              <path d="M2 2h14M2 7h14M2 12h14" />
-            </svg>
-          </a>
-          <a href="#choreo-runway" class="vortex-dock__cta" data-jump-portal="true">
-            CREATE CUSTOMERS
-          </a>
-        </div>
 
         <!-- Motion Pause Control (WCAG 2.2.2) -->
         <button
@@ -737,6 +664,7 @@
      Brand Theme: Deep Navy (#0a1638), Cobalt (#1e3db4) & Amber (#f08a2e)
      ========================================================= -->
 <section class="orl-section orl-practices-section" id="inbound-outbound" aria-labelledby="services-overview-heading">
+  <div id="services" class="orl-section-anchor"></div>
   <div class="orl-practices-container">
     
     <!-- Section Header (Centered) -->
@@ -754,7 +682,7 @@
     <div class="orl-practices-stack">
       
       <!-- Practice Card 1: Inbound Marketing -->
-      <article class="orl-practice-card sticky-stack-1" data-service="1">
+      <article class="orl-practice-card sticky-stack-1" id="practice-inbound" data-service="1">
         <div class="orl-practice-card__inner">
           <div class="orl-practice-meta">
             <span class="orl-practice-badge orl-badge--amber">PRACTICE 01</span>
@@ -805,7 +733,7 @@
       </article>
 
       <!-- Practice Card 2: Outbound Lead Generation -->
-      <article class="orl-practice-card sticky-stack-2" data-service="2">
+      <article class="orl-practice-card sticky-stack-2" id="practice-outbound" data-service="2">
         <div class="orl-practice-card__inner">
           <div class="orl-practice-meta">
             <span class="orl-practice-badge orl-badge--blue">PRACTICE 02</span>
@@ -856,7 +784,7 @@
       </article>
 
       <!-- Practice Card 3: Demand Generation -->
-      <article class="orl-practice-card sticky-stack-3" data-service="3">
+      <article class="orl-practice-card sticky-stack-3" id="practice-demand" data-service="3">
         <div class="orl-practice-card__inner">
           <div class="orl-practice-meta">
             <span class="orl-practice-badge orl-badge--blue">PRACTICE 03</span>
@@ -907,7 +835,7 @@
       </article>
 
       <!-- Practice Card 4: Appointment Setting -->
-      <article class="orl-practice-card sticky-stack-4" data-service="4">
+      <article class="orl-practice-card sticky-stack-4" id="practice-appointments" data-service="4">
         <div class="orl-practice-card__inner">
           <div class="orl-practice-meta">
             <span class="orl-practice-badge orl-badge--amber">PRACTICE 04</span>
@@ -958,7 +886,7 @@
       </article>
 
       <!-- Practice Card 5: Sales Automation -->
-      <article class="orl-practice-card sticky-stack-5" data-service="5">
+      <article class="orl-practice-card sticky-stack-5" id="practice-sales-auto" data-service="5">
         <div class="orl-practice-card__inner">
           <div class="orl-practice-meta">
             <span class="orl-practice-badge orl-badge--blue">PRACTICE 05</span>
@@ -1009,7 +937,7 @@
       </article>
 
       <!-- Practice Card 6: Marketing Automation -->
-      <article class="orl-practice-card sticky-stack-6" data-service="6">
+      <article class="orl-practice-card sticky-stack-6" id="practice-mktg-auto" data-service="6">
         <div class="orl-practice-card__inner">
           <div class="orl-practice-meta">
             <span class="orl-practice-badge orl-badge--amber">PRACTICE 06</span>
@@ -1060,7 +988,7 @@
       </article>
 
       <!-- Practice Card 7: CRM & Revenue Operations -->
-      <article class="orl-practice-card sticky-stack-7" data-service="7">
+      <article class="orl-practice-card sticky-stack-7" id="practice-revops" data-service="7">
         <div class="orl-practice-card__inner">
           <div class="orl-practice-meta">
             <span class="orl-practice-badge orl-badge--blue">PRACTICE 07</span>
@@ -1116,6 +1044,7 @@
 
 <!-- SECTION: WHY ONEREACH LABS -->
 <section id="data" class="orl-section orl-data" aria-labelledby="data-heading">
+  <div id="why-us" class="orl-section-anchor"></div>
   <div class="orl-data-stage">
     <div class="orl-data-backdrop" aria-hidden="true">
       <div class="orl-data-gridlines"></div>
@@ -1233,6 +1162,7 @@
 
 <!-- SECTION: AI PRODUCTS -->
 <section id="pricing" class="orl-section orl-pricing" aria-labelledby="pricing-heading">
+  <div id="products" class="orl-section-anchor"></div>
   <div class="orl-pricing-band" aria-hidden="true"></div>
 
   <div class="orl-container orl-pricing-container">
@@ -1314,7 +1244,7 @@
       </article>
 
       <!-- Product 2: Market IQ (Featured Center Card) -->
-      <article class="orl-plan orl-plan--featured">
+      <article class="orl-plan orl-plan--featured" id="market-iq">
         <div class="orl-plan-badge-row">
           <span class="orl-guarantee-pill">
             <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1370,9 +1300,10 @@
 
         <div class="orl-plan-cta">
           <a
-            href="#campaign-form-wrap"
+            href="https://web.onetrac.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
             class="orl-btn orl-btn--tier-featured"
-            data-jump-portal="true"
             data-engagement-preset="market-iq"
           >
             <span>Explore Market IQ</span>
@@ -1382,7 +1313,7 @@
       </article>
 
       <!-- Product 3: OneConnect CRM (Right Card) -->
-      <article class="orl-plan orl-plan--side">
+      <article class="orl-plan orl-plan--side" id="oneconnect-crm">
         <div class="orl-plan-art" aria-hidden="true">
           <svg viewBox="0 0 88 72" width="76" height="62" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <g class="orl-plan-art__base" stroke="#1e3db4" stroke-width="1.8">
@@ -1427,9 +1358,10 @@
 
         <div class="orl-plan-cta">
           <a
-            href="#campaign-form-wrap"
+            href="https://oneconnect.app/"
+            target="_blank"
+            rel="noopener noreferrer"
             class="orl-btn orl-btn--tier-dark"
-            data-jump-portal="true"
             data-engagement-preset="oneconnect-crm"
           >
             <span>Explore OneConnect CRM</span>
@@ -1460,6 +1392,7 @@
 
     <!-- Sub-section inside #pricing: Industries We Serve -->
     <div id="who-its-for" class="orl-who" aria-labelledby="who-heading">
+      <div id="industries" class="orl-section-anchor"></div>
       <header class="orl-who-head">
         <p class="orl-eyebrow">
           <span class="orl-eyebrow-dot" aria-hidden="true"></span>
@@ -1474,7 +1407,7 @@
       </header>
 
       <div class="orl-who-grid">
-        <article class="orl-who-card">
+        <article class="orl-who-card" id="industry-saas">
           <p class="orl-who-tag">Software</p>
           <h3 class="orl-who-title">B2B SaaS companies</h3>
           <p class="orl-who-desc">
@@ -1482,7 +1415,7 @@
           </p>
         </article>
 
-        <article class="orl-who-card">
+        <article class="orl-who-card" id="industry-consulting">
           <p class="orl-who-tag">Consulting</p>
           <h3 class="orl-who-title">Professional services firms</h3>
           <p class="orl-who-desc">
@@ -1490,7 +1423,7 @@
           </p>
         </article>
 
-        <article class="orl-who-card">
+        <article class="orl-who-card" id="industry-agencies">
           <p class="orl-who-tag">Agencies</p>
           <h3 class="orl-who-title">Agencies and outsourcing</h3>
           <p class="orl-who-desc">
@@ -1498,7 +1431,7 @@
           </p>
         </article>
 
-        <article class="orl-who-card">
+        <article class="orl-who-card" id="industry-manufacturing">
           <p class="orl-who-tag">Industrial</p>
           <h3 class="orl-who-title">Manufacturing &amp; industrial</h3>
           <p class="orl-who-desc">
@@ -1506,7 +1439,7 @@
           </p>
         </article>
 
-        <article class="orl-who-card">
+        <article class="orl-who-card" id="industry-finance">
           <p class="orl-who-tag">Finance</p>
           <h3 class="orl-who-title">Financial services &amp; insurance</h3>
           <p class="orl-who-desc">
@@ -1514,7 +1447,7 @@
           </p>
         </article>
 
-        <article class="orl-who-card">
+        <article class="orl-who-card" id="industry-enterprise">
           <p class="orl-who-tag">Enterprise</p>
           <h3 class="orl-who-title">Enterprise sales &amp; marketing</h3>
           <p class="orl-who-desc">
@@ -1607,30 +1540,30 @@
     <!-- =========================================================
          CONNECTED FINALE: SOPHIA NETWORK -> 3D TUNNEL -> FORM PORTAL
          ========================================================= -->
-    <section class="serve-section" id="services" aria-labelledby="serve-heading">
+    <section class="serve-section" id="services-network" aria-labelledby="serve-heading">
       <div class="serve-section__ambient" aria-hidden="true"></div>
 
       <div class="serve-section__grid">
         <!-- Top Centered Section Header -->
         <header class="serve-header">
-          <p class="serve-eyebrow">SERVICES OVERVIEW</p>
-          <h2 id="serve-heading" class="serve-title">The strategy and execution to move every opportunity forward.</h2>
+          <p class="serve-eyebrow">INTEGRATED GROWTH ECOSYSTEM</p>
+          <h2 id="serve-heading" class="serve-title">A connected architecture where data, intelligence, and execution align.</h2>
           <p class="serve-desc">
-            From attracting high-intent buyers to improving sales follow-up and pipeline visibility, our services help connect the work that drives B2B growth.
+            Explore how live buyer signals, omnichannel engagement, and automated revenue workflows synchronize seamlessly across your pipeline.
           </p>
         </header>
 
         <!-- Left Color-Coded Capability Legend -->
         <div class="serve-legend">
           <ul class="industry-list" id="industry-list" aria-label="OneReach Labs growth services">
-            <li><button type="button" class="industry-item" data-industry="intel" aria-pressed="false"><span class="dot" style="--dot-color:#f59e0b"></span>INBOUND MARKETING</button></li>
-            <li><button type="button" class="industry-item" data-industry="discovery" aria-pressed="false"><span class="dot" style="--dot-color:#34d399"></span>OUTBOUND LEAD GEN</button></li>
-            <li><button type="button" class="industry-item" data-industry="signals" aria-pressed="false"><span class="dot" style="--dot-color:#60a5fa"></span>DEMAND GENERATION</button></li>
-            <li><button type="button" class="industry-item" data-industry="enrichment" aria-pressed="false"><span class="dot" style="--dot-color:#fb7185"></span>APPOINTMENT SETTING</button></li>
-            <li><button type="button" class="industry-item" data-industry="drafter" aria-pressed="false"><span class="dot" style="--dot-color:#facc15"></span>SALES AUTOMATION</button></li>
-            <li><button type="button" class="industry-item" data-industry="sequences" aria-pressed="false"><span class="dot" style="--dot-color:#e879f9"></span>MARKETING AUTOMATION</button></li>
-            <li><button type="button" class="industry-item" data-industry="followup" aria-pressed="false"><span class="dot" style="--dot-color:#22d3ee"></span>CRM &amp; REVENUE OPS</button></li>
-            <li><button type="button" class="industry-item" data-industry="pipeline" aria-pressed="false"><span class="dot" style="--dot-color:#f3f4f6"></span>EXPLORE OUR SERVICES</button></li>
+            <li><button type="button" class="industry-item" data-industry="intel" aria-pressed="false"><span class="dot" style="--dot-color:#f59e0b"></span>MARKET INTELLIGENCE</button></li>
+            <li><button type="button" class="industry-item" data-industry="discovery" aria-pressed="false"><span class="dot" style="--dot-color:#34d399"></span>ACCOUNT DISCOVERY</button></li>
+            <li><button type="button" class="industry-item" data-industry="signals" aria-pressed="false"><span class="dot" style="--dot-color:#60a5fa"></span>INTENT SIGNALS</button></li>
+            <li><button type="button" class="industry-item" data-industry="enrichment" aria-pressed="false"><span class="dot" style="--dot-color:#fb7185"></span>DATA ENRICHMENT</button></li>
+            <li><button type="button" class="industry-item" data-industry="drafter" aria-pressed="false"><span class="dot" style="--dot-color:#facc15"></span>DYNAMIC DRAFTING</button></li>
+            <li><button type="button" class="industry-item" data-industry="sequences" aria-pressed="false"><span class="dot" style="--dot-color:#e879f9"></span>OMNICHANNEL SEQUENCING</button></li>
+            <li><button type="button" class="industry-item" data-industry="followup" aria-pressed="false"><span class="dot" style="--dot-color:#22d3ee"></span>AUTONOMOUS FOLLOW-UP</button></li>
+            <li><button type="button" class="industry-item" data-industry="pipeline" aria-pressed="false"><span class="dot" style="--dot-color:#f3f4f6"></span>PIPELINE VELOCITY</button></li>
           </ul>
         </div>
 
@@ -1645,8 +1578,8 @@
 
       <!-- Bottom Bridge Row -->
       <div class="serve-footer">
-        <div class="serve-footer__left">Human Strategy &bull; AI-Powered Execution &bull; Predictable Revenue Growth</div>
-        <div class="serve-footer__right"><a href="#campaign-form-wrap" style="color: inherit; text-decoration: none;">Explore Our Services &rarr;</a></div>
+        <div class="serve-footer__left">Connected Ecosystem &bull; Continuous Optimization &bull; Scalable Revenue Architecture</div>
+        <div class="serve-footer__right"><a href="#campaign-form-wrap" style="color: inherit; text-decoration: none;">Launch Your Engine &rarr;</a></div>
       </div>
     </section>
 
@@ -1674,6 +1607,7 @@
         <div class="white-portal" id="white-portal" aria-hidden="true">
           <canvas id="portal-rays-canvas" class="portal-rays-canvas" aria-hidden="true"></canvas>
           <div class="white-portal__card" id="white-portal-card">
+            <div id="contact" class="orl-section-anchor"></div>
             <div class="campaign-form-wrap" id="campaign-form-wrap">
               <header class="campaign-form-header">
                 <h2 id="campaign-heading" class="campaign-title">Ready to connect your marketing, sales and growth operations?</h2>
@@ -1863,7 +1797,7 @@
                   </div>
 
                   <p class="prefer-talk">
-                    Human Strategy &bull; AI-Powered Execution &bull; Predictable Revenue Growth
+                    Confidential Assessment &bull; Zero Obligation &bull; Tailored Growth Roadmap
                   </p>
                 </div>
 
@@ -1876,21 +1810,21 @@
         <!-- LAYER C: FLYING 3D NARRATIVE CARDS -->
         <div class="tunnel-cards" id="tunnel-cards">
           <article class="tunnel-card" data-align="left">
-            <p class="tunnel-card__eyebrow">STRATEGY &amp; EXECUTION TOGETHER</p>
+            <p class="tunnel-card__eyebrow">STAGE 01 &middot; SIGNAL DISCOVERY</p>
             <div class="tunnel-card__rule" aria-hidden="true"></div>
-            <h2 class="tunnel-card__title">Connect planning with practical campaign and sales activity.</h2>
+            <h2 class="tunnel-card__title">Identify high-intent accounts through real-time buyer intelligence.</h2>
           </article>
 
           <article class="tunnel-card" data-align="right">
-            <p class="tunnel-card__eyebrow">INBOUND &amp; OUTBOUND ALIGNMENT</p>
+            <p class="tunnel-card__eyebrow">STAGE 02 &middot; PRECISION ENGAGEMENT</p>
             <div class="tunnel-card__rule" aria-hidden="true"></div>
-            <h2 class="tunnel-card__title">Build demand while proactively engaging selected accounts.</h2>
+            <h2 class="tunnel-card__title">Activate personalized, multi-channel outreach at enterprise scale.</h2>
           </article>
 
           <article class="tunnel-card" data-align="center">
-            <p class="tunnel-card__eyebrow">BUILT TO SCALE</p>
+            <p class="tunnel-card__eyebrow">STAGE 03 &middot; PIPELINE VELOCITY</p>
             <div class="tunnel-card__rule" aria-hidden="true"></div>
-            <h2 class="tunnel-card__title">Establish repeatable workflows that can evolve as your business grows.</h2>
+            <h2 class="tunnel-card__title">Convert qualified prospects into predictable, high-value meetings.</h2>
           </article>
         </div>
 
@@ -1940,10 +1874,10 @@
       <div class="site-footer__hero">
         <span class="site-footer__cross site-footer__cross--tl" aria-hidden="true">+</span>
         <span class="site-footer__cross site-footer__cross--tr" aria-hidden="true">+</span>
-        <h2 class="site-footer__headline">Ready to connect your marketing, sales and growth operations?</h2>
-        <p class="site-footer__sub">Tell us about your market, sales process and growth priorities. We’ll discuss where strategy, execution and AI automation can make the biggest difference.</p>
+        <h2 class="site-footer__headline">Accelerate your revenue engine with confidence.</h2>
+        <p class="site-footer__sub">Partner with growth specialists who align deep strategic insight with scalable execution. Let&rsquo;s engineer your next stage of sustainable pipeline expansion.</p>
         <a href="#campaign-form-wrap" class="header-cta footer-cta" data-jump-portal="true">
-          <span>Book a Strategy Call</span>
+          <span>Schedule a Strategy Session</span>
           <span class="header-cta__arrow" aria-hidden="true">
             <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3.5 8h9M8.5 4l4 4-4 4" />
@@ -1966,49 +1900,25 @@
             >
           </a>
           <p class="site-footer__tagline">Human Strategy. AI-Powered Execution. Predictable Revenue Growth.</p>
-          <div class="site-footer__socials" aria-label="Social and direct channels">
-            <a class="site-footer__social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-                <path d="M6.94 8.5H3.56V19.5H6.94V8.5ZM5.25 3.5C4.14 3.5 3.25 4.39 3.25 5.5C3.25 6.6 4.14 7.5 5.25 7.5C6.35 7.5 7.25 6.6 7.25 5.5C7.25 4.39 6.35 3.5 5.25 3.5ZM20.44 13.02C20.44 9.88 18.76 8.22 16.16 8.22C14.35 8.22 13.38 9.21 12.92 9.93V8.5H9.56C9.61 9.48 9.56 19.5 9.56 19.5H12.92V13.36C12.92 13.02 12.95 12.69 13.05 12.45C13.32 11.78 13.92 11.09 14.96 11.09C16.31 11.09 17.06 12.11 17.06 13.61V19.5H20.44V13.02Z" />
-              </svg>
-            </a>
-            <a class="site-footer__social-link" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-            <a class="site-footer__social-link" href="#campaign-form-wrap" data-jump-portal="true" aria-label="Book a strategy call">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="4" width="18" height="17" rx="2" />
-                <path d="M8 2v4M16 2v4M3 10h18" />
-              </svg>
-            </a>
-          </div>
         </div>
 
         <nav class="site-footer__cols" aria-label="Footer">
           <div class="site-footer__col">
-            <h3 class="site-footer__col-title">Services</h3>
+            <h3 class="site-footer__col-title">Navigation</h3>
             <ul class="site-footer__list">
-              <li><a href="#services">Inbound Marketing</a></li>
-              <li><a href="#services">Outbound Lead Generation</a></li>
-              <li><a href="#services">Demand Generation</a></li>
-              <li><a href="#services">Appointment Setting</a></li>
-              <li><a href="#services">Sales Automation</a></li>
-              <li><a href="#services">Marketing Automation</a></li>
-              <li><a href="#services">CRM &amp; Revenue Operations</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#industries">Industries</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#why-us">Why OneReach Labs</a></li>
             </ul>
           </div>
 
           <div class="site-footer__col">
-            <h3 class="site-footer__col-title">Products &amp; Industries</h3>
+            <h3 class="site-footer__col-title">AI Products</h3>
             <ul class="site-footer__list">
               <li><a href="https://onereach.app/" target="_blank" rel="noopener noreferrer">OneReach AI Sales</a></li>
-              <li><a href="#pricing">Market IQ Intelligence</a></li>
-              <li><a href="#pricing">OneConnect CRM</a></li>
-              <li><a href="#who-its-for">B2B SaaS Companies</a></li>
-              <li><a href="#who-its-for">Professional Services</a></li>
-              <li><a href="#who-its-for">Enterprise Teams</a></li>
+              <li><a href="https://web.onetrac.ai/" target="_blank" rel="noopener noreferrer">Market IQ Intelligence</a></li>
+              <li><a href="https://oneconnect.app/" target="_blank" rel="noopener noreferrer">OneConnect CRM</a></li>
             </ul>
           </div>
 
@@ -2031,7 +1941,7 @@
                 <button type="button" class="site-footer__link-btn" command="show-modal" commandfor="guarantee-dialog" data-open-dialog="guarantee-dialog">Cookie Preferences</button>
               </li>
               <li>
-                <a href="#campaign-form-wrap" data-jump-portal="true">Contact Us</a>
+                <a href="#contact" data-jump-portal="true">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -2275,7 +2185,7 @@
   </div>
 </dialog>
 
-  <script defer src="app.js"></script>
+  <script defer src="app.js?v=2.4"></script>
   <script defer src="sections.js"></script>
 </body>
 </html>
